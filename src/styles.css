@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #f8fafc;
+  color: #1e293b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hidden-section {
+  display: none;
+}
+
+.active-section {
+  display: block;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.project-watermark {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.project-watermark::before,
+.project-watermark::after {
+  content: "ОБРАЗЕЦ ПРОЕКТА  ОБРАЗЕЦ ПРОЕКТА  ОБРАЗЕЦ ПРОЕКТА  ОБРАЗЕЦ ПРОЕКТА  ОБРАЗЕЦ ПРОЕКТА";
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  white-space: nowrap;
+  text-align: center;
+  transform: rotate(-22deg);
+  font-weight: 800;
+  letter-spacing: 0.45rem;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.project-watermark::before {
+  top: 30%;
+  font-size: clamp(16px, 2.4vw, 34px);
+  color: rgba(15, 23, 42, 0.09);
+}
+
+.project-watermark::after {
+  top: 62%;
+  font-size: clamp(14px, 2vw, 28px);
+  color: rgba(15, 23, 42, 0.07);
+}
